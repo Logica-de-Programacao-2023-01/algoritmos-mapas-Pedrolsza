@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func countLettersInWords(phrase string) map[string]map[rune]int {
+	wordCounts := make(map[string]map[rune]int)
+
+	words := strings.Fields(phrase) // Quebra a frase em palavras
+	for _, word := range words {
+wordCounts[word] = make(map[rune]int)
+		for _, char := range word {
+wordCounts[word][char]++
+		}
+	}
+
+	return wordCounts
+}
+
+func main() {
+	phrase := "hello world"
+
+	wordLetterCounts := countLettersInWords(phrase)
+
+	fmt.Println("Contagem de letras em cada palavra:")
+	for word, letterCounts := range wordLetterCounts {
+		fmt.Println(word, letterCounts)
+	}
+}
