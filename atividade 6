@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+
+func sumWordCounts(wordCountsList []map[string]int) map[string]int {
+	sumCounts := make(map[string]int)
+
+	for _, wordCounts := range wordCountsList {
+		for word, count := range wordCounts {
+			sumCounts[word] += count
+		}
+	}
+
+	return sumCounts
+}
+
+func main() {
+	wordCountsList := []map[string]int{
+		{"apple": 2, "banana": 3},
+		{"banana": 1, "orange": 2},
+	}
+
+	totalCounts := sumWordCounts(wordCountsList)
+
+	fmt.Println("Contagem total de palavras:")
+	for word, count := range totalCounts {
+		fmt.Printf("%s: %d\n", word, count)
+	}
+}
