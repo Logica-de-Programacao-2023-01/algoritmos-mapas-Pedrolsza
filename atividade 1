@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func countWords(s string) map[string]int {
+	wordCount := make(map[string]int)
+
+	words := strings.Fields(s)
+
+	for _, word := range words {
+		wordCount[word]++
+	}
+
+	return wordCount
+}
+
+func main() {
+	text := "apple banana apple orange apple banana"
+
+	wordCount := countWords(text)
+	fmt.Println("Contagem de palavras:")
+	for word, count := range wordCount {
+		fmt.Printf("%s: %d\n", word, count)
+	}
+}
